@@ -1,0 +1,79 @@
+{
+  "name": "dnd5e-automated-spells",
+  "title": "DnD5e Automated Spells",
+  "description": "A compendium of automated Spells to use with Midi-QoL, DAE and ItemMacro",
+  "scripts": [
+    "scripts/dnd5e-automated-spells.js"
+  ],
+  "compatibility": {
+    "minimum": "9",
+    "verified": "9",
+    "maximum": "9"
+  },
+  "packs":[
+    {
+      "name": "automated-cantrips",
+      "label": "DnD5e Automated Spells - Cantrips",
+      "path": "./packs/automated-cantrips.db",
+      "entity": "Item"
+    },
+    {
+      "name": "automated-1st-level-spells",
+      "label": "DnD5e Automated Spells - 1st Level",
+      "path": "./packs/automated-1st-level-spells.db",
+      "entity": "Item"
+    },
+    {
+      "name": "automated-2nd-levell-spells",
+      "label": "DnD5e Automated Spells - 2nd Level",
+      "path": "./packs/automated-2nd-levell-spells.db",
+      "entity": "Item"
+    },
+    {
+      "name": "automated-3rd-level-spells",
+      "label": "DnD5e Automated Spells - 3rd Level",
+      "path": "./packs/automated-3rd-level-spells.db",
+      "entity": "Item"
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "dae",
+      "manifest": "https://gitlab.com/tposney/dae/raw/master/package/module.json"
+    },
+    {
+      "name": "midi-qol",
+      "manifest": "https://gitlab.com/tposney/midi-qol/raw/master/package/module.json"
+    },
+    {
+      "name": "times-up",
+      "manifest": "https://gitlab.com/tposney/times-up/raw/master/package/module.json"
+    },
+    {
+      "name": "itemacro",
+      "manifest": "https://raw.githubusercontent.com/Kekilla0/Item-Macro/master/module.json"
+    },
+    {
+      "name": "socketlib", "type": "module"
+    },
+    {
+      "name": "lib-wrapper", "type": "module"
+    }
+  
+  ],
+  "authors": [
+    {
+      "name": "James Brandt"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "languages/en.json"
+    }
+  ],
+  "version": "1",
+  "minimumCoreVersion": "9.269",
+  "compatibleCoreVersion": "9.269"
+}
