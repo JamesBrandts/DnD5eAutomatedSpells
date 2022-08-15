@@ -78,5 +78,5 @@
   "compatibleCoreVersion": "9.269",
   "url": "https://github.com/JamesBrandts/DnD5eAutomatedSpells",
   "manifest": "https://raw.githubusercontent.com/JamesBrandts/DnD5eAutomatedSpells/main/module.json",
-  "download": "",
+  "download": "https://github.com/JamesBrandts/DnD5eAutomatedSpells/blob/main/dnd5e-automated-spells.zip?raw=true"
 }
