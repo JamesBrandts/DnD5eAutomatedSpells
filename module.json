@@ -75,5 +75,8 @@
   ],
   "version": "1",
   "minimumCoreVersion": "9.269",
-  "compatibleCoreVersion": "9.269"
+  "compatibleCoreVersion": "9.269",
+  "url": "https://github.com/JamesBrandts/DnD5eAutomatedSpells",
+  "manifest": "https://raw.githubusercontent.com/JamesBrandts/DnD5eAutomatedSpells/main/module.json",
+  "download": "",
 }
