@@ -18,6 +18,4 @@ Recomended Macros for testing:
     
   Remove Temporary Effects from selected Tokens:
   
-    for(let token of canvas.tokens.controlled){
-      token.actor.deleteEmbeddedDocuments('ActiveEffect',token.actor.effects.filter(i=>i.isTemporary).map(i=>i.id))
-    }
+    canvas.tokens.controlled.map(i=>i.actor.deleteEmbeddedDocuments('ActiveEffect',i.actor.effects.filter(i=>i.isTemporary).map(i=>i.id)))
