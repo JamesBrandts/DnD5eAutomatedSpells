@@ -1,12 +1,12 @@
 # In test, this is here for test purposes only and is not intended to be used yet.
 # DnD5eAutomatedSpells
-This is a Colection of Spells to be used with automation with the modules Midi-QoL, DAE and Item Macro.
+This is a Collection of Spells to be used with automation with the modules Midi-QoL, DAE and Item Macro.
 
-Recomended Modules for testing:
+Recommended Modules for testing:
 
   Token Action HUD
 
-Recomended Macros for testing:
+Recommended Macros for testing:
 
   Turn Pass:
   
