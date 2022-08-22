@@ -10,6 +10,7 @@
     "verified": "9",
     "maximum": "9"
   },
+  "socket":true,
   "packs":[
     {
       "name": "automated-cantrips",
