@@ -28,7 +28,7 @@ Hooks.on("midi-qol.preDamageRollComplete",async(workflow)=>{
 })
 let automatedSocket;
 Hooks.once("socketlib.ready", () => {
-    console.log('DnD5e Automated Spells|| Registering Socket');
+    console.log('DnD5e Automated Spells|| Registering Sockets');
     automatedSocket = socketlib.registerModule("dnd5e-automated-spells");	
     automatedSocket.register("automatedWebSpell", automatedWebSpell);
     automatedSocket.register("automatedDarknessSpell", automatedDarknessSpell);
