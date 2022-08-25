@@ -33,7 +33,16 @@ Hooks.once("socketlib.ready", () => {
     automatedSocket.register("automatedWebSpell", automatedWebSpell);
     automatedSocket.register("automatedDarknessSpell", automatedDarknessSpell);
     automatedSocket.register("automatedSpikeGrowthSpell", automatedSpikeGrowthSpell);
+    automatedSocket.register("callHookGM", callHookGM);
 })
+
+Hooks.on("midi-qol.preItemRoll",async (workflow)=>{
+    return await automatedSocket.executeAsGM("callHookGM","midi-qol.preItemRollGM",workflow)
+})
+async function callHookGM(hookName,workflow){
+    return await Hooks.call(hookName,workflow)
+}
+
 
 async function automatedWebSpell(args){
     let casterToken = await fromUuid(args[0].tokenUuid)
