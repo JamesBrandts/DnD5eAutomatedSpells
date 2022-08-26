@@ -74,7 +74,7 @@
       "path": "languages/en.json"
     }
   ],
-  "version": "1.1.4",
+  "version": "1.1.5",
   "minimumCoreVersion": "9.269",
   "compatibleCoreVersion": "9.269",
   "url": "https://github.com/JamesBrandts/DnD5eAutomatedSpells",

@@ -1,4 +1,4 @@
-console.log('DnD5e Automated Spells 1.1.4|| Registering Hooks');
+console.log('DnD5e Automated Spells 1.1.5|| Registering Hooks');
 Hooks.on("midi-qol.preDamageRollComplete",async(workflow)=>{   
     let targets = await Array.from(workflow.targets)
     for(let target of targets){
