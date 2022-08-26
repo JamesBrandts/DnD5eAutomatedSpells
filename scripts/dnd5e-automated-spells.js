@@ -1,4 +1,4 @@
-console.log('DnD5e Automated Spells 1.1.3|| Registering Hooks');
+console.log('DnD5e Automated Spells 1.1.4|| Registering Hooks');
 Hooks.on("midi-qol.preDamageRollComplete",async(workflow)=>{   
     let targets = await Array.from(workflow.targets)
     for(let target of targets){
@@ -42,8 +42,11 @@ Hooks.on("midi-qol.preItemRoll",async (workflow)=>{
 Hooks.on("midi-qol.preDamageRollComplete",async (workflow)=>{
     return await automatedSocket.executeAsGM("callHookGM","midi-qol.preDamageRollCompleteGM",workflow)
 })
-async function callHookGM(hookName,workflow){
-    return await Hooks.call(hookName,workflow)
+Hooks.on("preUpdateToken",async (document,updates)=>{
+    return await automatedSocket.executeAsGM("callHookGM","preUpdateTokenGM",document,updates)
+})
+async function callHookGM(hookName,arg1,arg2){
+    return await Hooks.call(hookName,arg1,arg2)
 }
 
 
