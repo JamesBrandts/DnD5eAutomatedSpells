@@ -39,6 +39,9 @@ Hooks.once("socketlib.ready", () => {
 Hooks.on("midi-qol.preItemRoll",async (workflow)=>{
     return await automatedSocket.executeAsGM("callHookGM","midi-qol.preItemRollGM",workflow)
 })
+Hooks.on("midi-qol.preDamageRollComplete",async (workflow)=>{
+    return await automatedSocket.executeAsGM("callHookGM","midi-qol.preDamageRollCompleteGM",workflow)
+})
 async function callHookGM(hookName,workflow){
     return await Hooks.call(hookName,workflow)
 }
