@@ -8,6 +8,10 @@ Recommended Modules for testing:
 
   Token Action HUD
 
+**NOT** Recommended Modules for testing:
+
+  Better Rolls 5e (Many people like it, but the module's been discontinued and it messes up with the Midi-QoL workflow, so it'll break most of this items)
+  
 Recommended Macros for testing:
 
   Turn Pass:
