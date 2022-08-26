@@ -1,6 +1,6 @@
 {
   "name": "dnd5e-automated-spells",
-  "title": "DnD5e Automated Spells",
+  "title": "[ALPHA]DnD5e Automated Spells",
   "description": "A compendium of automated Spells to use with Midi-QoL, DAE and ItemMacro",
   "scripts": [
     "scripts/dnd5e-automated-spells.js"
@@ -74,10 +74,10 @@
       "path": "languages/en.json"
     }
   ],
-  "version": "1.1.3",
+  "version": "1.1.4",
   "minimumCoreVersion": "9.269",
   "compatibleCoreVersion": "9.269",
   "url": "https://github.com/JamesBrandts/DnD5eAutomatedSpells",
   "manifest": "https://raw.githubusercontent.com/JamesBrandts/DnD5eAutomatedSpells/main/module.json",
-  "download": "https://github.com/JamesBrandts/DnD5eAutomatedSpells/archive/refs/tags/Alpha.zip"
+  "download": "https://github.com/JamesBrandts/DnD5eAutomatedSpells/archive/refs/tags/1.1.4-alpha.zip"
 }
