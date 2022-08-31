@@ -1,7 +1,7 @@
 # [ALPHA] In test, this is here for test purposes only and is not intended to be used yet.
 # DnD5eAutomatedSpells
 This is a Collection of Spells to be used with automation with the modules Midi-QoL, DAE and Item Macro.
-I'm focusing on the 3 first level of spells and cantrips for now, as they are the more used by the majority of players.
+I'm focusing on the 3 first levels of spells and cantrips for now, as they are the most used by the majority of players.
 
 
 Recommended Modules for testing:
@@ -75,6 +75,32 @@ Recommended Macros for testing:
 
 *	**Produce Flame**:		
 		Creates an Item on the user, then deletes it when the effect ends and ends the effect if the item is used.
+
+##	1st Level Spells:
+
+*	**Cause Fear**:		
+		Effect cancels token movement if it's towards the caster.
+
+*	**Faerie Fire**:		
+		Condition Immunity(Invisible), grants.advantage.attack.all, creates dim and colorful light around the targets
+
+*	**Hail Of Thorns**:		
+		damageBonusMacro, creates a temporary Item to deal damage on the tokens around target.
+
+*	**Armor of Agathys**:		
+		When target is damaged, creates a temporary Item to deal damage to the attacker, then verifies if the target still have temporary HP else ends the effect.
+
+*	**Absorb Elements**:		
+		To avoid the reaction Prompting on every damage taken, there's a Hook on initialization that switches the item between Reaction Manual and Reaction Damaged depending on the type of the damage taken. (TODO: Midi-QoL will add a better way to do it on future updates)
+
+*	**Zephyr Strike**:		
+		Creates a feature, that can be used for the activation of the effects(move speed, bonus damage and advantage on attack)
+
+*	**Ensnaring Strike**:		
+		bonusDamageMacro, creates effect on target if failed save. (TODO: Create Item to use effect)
+
+*	**Chromatic Orb**:		
+		Macro prompt Dialog to choose the damage type and changes it on workflow.
 
 
 
