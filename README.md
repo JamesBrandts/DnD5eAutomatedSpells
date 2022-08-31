@@ -53,7 +53,7 @@ Recommended Macros for testing:
 		Moves the target away if it fails the save.
 
 *	**Shocking Grasp**:		
-		Set the midi-qol flag reactionCombatRound to the current round. // Todo: Test this with Convenient Effects
+		Set the midi-qol flag reactionCombatRound to the current round. (TODO: Test this with Convenient Effects)
 
 *	**Infestation**:		
 		Moves the target to a random direction if it fails the save.
