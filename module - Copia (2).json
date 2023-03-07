@@ -1,0 +1,38 @@
+{
+  "id": "dnd5e-automated-spells",
+  "title": "DnD5e Automated Spells",
+  "description": "Wish it worked",
+  "author": "Me",
+  "url": "https://github.com/JamesBrandts/DnD5eAutomatedSpells",
+  "version": "2.0.0",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10",
+    "maximum": "10"
+  },
+  "minimumCoreVersion": "10",
+  "compatibleCoreVersion": "10",
+  "scripts": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "packs": [],
+  "system": [],
+  "relationships": {
+    "requires": [
+    {
+      "id": "socketlib",
+      "type": "module"
+    }]
+  },
+  "socket": true,
+  "manifest": "https://raw.githubusercontent.com/JamesBrandts/DnD5eAutomatedSpells/main/module.json",
+  "download": "https://github.com/JamesBrandts/DnD5eAutomatedSpells/archive/refs/tags/1.1.5-alpha.zip",
+  "protected": false,
+  "coreTranslation": false,
+  "library": false
+}
