@@ -100,7 +100,57 @@ Recommended Macros for testing:
 		bonusDamageMacro, creates effect on target if failed save. (TODO: Create Item to use effect)
 
 *	**Chromatic Orb**:		
-		Macro prompt Dialog to choose the damage type and changes it on workflow.
+		Macro prompts Dialog to choose the damage type and changes it on workflow.
+
+*	**Compelled Duel**:		
+		Concentration effects will end if target uses spell that effects targets with the same disposition as target or if caster ends its turn more than 30 feet away from the target. If the target attacks a target that is not the caster, the attack has gets disadvantage on the workflow, if the target tries to move more than 30 feet away from the caster, the macro makes a wisdom save for the target and prevents the movement for the current turn if failed.
+
+*	**Arms of Hadar**:		
+		Set the midi-qol flag reactionCombatRound to the current round. (TODO: Test this with Convenient Effects).
+		
+*	**Cause Fear**:		
+		If the target tries to move closer to the caster while under effects of the spell, the movement is prevented.
+		
+*	**Chaos Bolt**:		
+		Uses old Maselkov macro. TODO: Create a new macro similar to Chromatic Orb.
+		
+*	**Color Spray**:		
+		Makes the roll as Damage (No Damage) and goes from the lowest to the highest HP applying the blind effect until there's not enought HP to affect the next target.
+
+*	**Ensnaring Strike**:		
+		TODO: DamageBonusMacro to create a temporary item, use it on the target to apply the effects if it fails.
+
+*	**Goodberry**:		
+		Creates the fruid on the iventory of the target.
+
+*	**Grease**:		
+		TODO: Create an effect on the cast, and another to create a temporary item to cast it when a creture enters on ends it's turn on the area.
+
+*	**Hail of Thorns**:		
+		TODO: DamageBonusMacro to create a temporary item, use it on the target to apply the effects on the area.
+
+*	**Ice Knife**:		
+		Creates a temporary item to cast the area effect.
+
+*	**Hex**:		
+		Creates a dialog to prompt the user for the ability to effect.
+
+*	**Magic Missile**:		
+		If there are more than one target selected, the spells shows a dialog for the caster to choose how many missiles should hit each target.
+
+*	**Sleep**:		
+		Makes the roll as Damage (No Damage) and goes from the lowest to the highest HP applying the unconcious effect until there's not enought HP to affect the next target.
+		
+*	**Thunderous Smite**:		
+		DamageBonusMacro to move the target 10 feet away and apply the prone effect.
+
+*	**Thunderwave**:		
+		Effect to move targets that fail the sabe 10 feet awayt.
+
+
+
+
+
 
 
 
