@@ -84,6 +84,10 @@ Hooks.on("midi-qol.preAttackRoll", async (workflow) => {
     for (let target of workflow.targets)
         if (target.actor.flags.dae?.ProtectionFromEvilAndGood)
             workflow.disadvantage = true
+    if(workflow.actor.flags.dae.BestowCurseTokenId)
+        if(Array.from(workflow.targets).map(i=>i.id).includes(workflow.actor.flags.dae.BestowCurseTokenId))
+            workflow.disadvantage = true
+    
 });
 
 //Ancestral Protectors
