@@ -50,7 +50,7 @@ for (let tokenUuid of args[0]?.hitTargetUuids) {
     const target = await MidiQOL.MQfromActorUuid(tokenUuid);
     const effects =  target.effects.filter(i=>i.flags.dae.effect = "booming-blade").length
     if( effects > 0) continue;
-    await MidiQOL.socket().executeAsGM("createEffects", {actorUuid: tokenUuid, effects: [getEffectData()]});
+    await MidiQOL.socket().executeAsGM("createEffects", {actorUuid: tokenUuid, effects: [getBoomingBladeEffectData()]});
     animation(target)
     const hookId = Hooks.on("updateToken",(document,update,options,userId)=>{
         if(document.uuid === tokenUuid && ("x" in update || "y" in update) && !target.flags.dae.forcedMovement){
@@ -62,7 +62,7 @@ for (let tokenUuid of args[0]?.hitTargetUuids) {
     })
     const hookId2 = Hooks.on("updateCombat",(document,update,options,userId)=>{
         if(canvas.scene.tokens.get(document.current.tokenId).actor.id === tactor.id){
-            MidiQOL.socket().executeAsGM("removeEffects", {actorUuid: tokenUuid, effects: target.effects.filter(i=>i.flags.dae.effect = "booming-blade").map(i=>i.id)});
+            MidiQOL.socket().executeAsGM("removeEffects", {actorUuid: tokenUuid, effects: target.effects.filter(i=>i.flags.dae.effectName = "booming-blade").map(i=>i.id)});
             endAnimation(target)
             Hooks.off("updateToken",hookId)
             Hooks.off("updateToken",hookId2)
@@ -109,7 +109,7 @@ function getItemData(dices){
     }
 }
 
-function getEffectData(){
+function getBoomingBladeEffectData(){
     return {
         "disabled": false,
         "duration": {
@@ -117,12 +117,12 @@ function getEffectData(){
         },
         "icon": "icons/magic/sonic/projectile-shock-wave-blue.webp",
         "label": "Booming Blade",
-        "flags":{"dae":{"effect":"booming-blade"}}
+        "flags":{"dae":{"effectName":"booming-blade"}}
     }
 }
 
 function animation(target){
-    console.log({target})
+    if(!game.modules.get("sequencer").active)return
     const tokenHeight = target.token?.height ?? 1
     new Sequence()
         .effect()
@@ -136,5 +136,6 @@ function animation(target){
 
 
 function endAnimation(target){
+    if(!game.modules.get("sequencer").active)return
     Sequencer.EffectManager.endEffects({name: `BoomingBlade-${target.id}`})
 }

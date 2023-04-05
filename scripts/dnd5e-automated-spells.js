@@ -1,3 +1,5 @@
+//import ThunderGauntlets from "./features/Thunder Gauntlets"
+
 console.log('DnD5e Automated Spells 2.0.0|| Registering Hooks');
 
 let socket;
@@ -11,6 +13,18 @@ Hooks.once("socketlib.ready", () => {
     socket.register("automatedSpikeGrowthSpell", automatedSpikeGrowthSpell);
     socket.register("automatedWebSpell", automatedWebSpell);
 });
+
+async function useItem(tokenUuid, targetUuids, itemData) {
+    const token = await fromUuid(tokenUuid)
+    const actor = token.actor ?? token
+    let [item] = await actor.createEmbeddedDocuments("Item", [itemData])
+    await MidiQOL.completeItemUse(item, {}, { targetUuids });
+    await actor.deleteEmbeddedDocuments("Item", [item.id])
+}
+
+async function updateItem(actor, copy_item) {
+    await actor.updateEmbeddedDocuments("Item", [copy_item])
+}
 
 
 //Armor of Agathys
@@ -54,6 +68,7 @@ function ArmorOfAgathysDamageData(damage) {
 //Absorb Elements
 Hooks.on("midi-qol.preambleComplete", async (workflow) => {
     for (let target of workflow.targets) {
+        if(!target.actor.flags.dae.AbsorbElements)return
         const items = target.actor.items.filter(item => item.flags?.dnd5e?.spellName === "Absorb Elements")
         if (items.lenght < 1) continue;
         if (!workflow.item?.system?.damage?.parts[0]) continue;
@@ -76,6 +91,10 @@ Hooks.on("midi-qol.preambleComplete", async (workflow) => {
             }
         }
     }
+})
+
+Hooks.on("midi-qol.preAttackRoll", async (workflow)=>{
+    ThunderGauntlets(workflow)
 })
 
 //Protection from Evil and Good
@@ -107,17 +126,7 @@ Hooks.on("midi-qol.preDamageRoll", async (workflow) => {
 });
 
 
-async function useItem(tokenUuid, targetUuids, itemData) {
-    const token = await fromUuid(tokenUuid)
-    const actor = token.actor ?? token
-    let [item] = await actor.createEmbeddedDocuments("Item", [itemData])
-    await MidiQOL.completeItemUse(item, {}, { targetUuids });
-    await actor.deleteEmbeddedDocuments("Item", [item.id])
-}
 
-async function updateItem(actor, copy_item) {
-    await actor.updateEmbeddedDocuments("Item", [copy_item])
-}
 
 function getAncientProtectionData() {
     return {
@@ -256,7 +265,6 @@ async function automatedWebSpell(args) {
     let templateX = template.x;
     let templateY = template.y
     let item = await casterToken.actor.createEmbeddedDocuments('Item', [getWebSaveData()])
-    console.log({ casterToken })
     let removeUuids = getProperty(casterToken.actor.flags, "midi-qol.concentration-data.removeUuids") ?? [];
     removeUuids = removeUuids.concat([item[0].uuid]);
     if (removeUuids.length > 0) casterToken.actor.setFlag("midi-qol", "concentration-data.removeUuids", removeUuids);
@@ -401,7 +409,6 @@ async function automatedWebSpell(args) {
         const spelldc = args[1];
         if(args[0] === "on"){
             const casterToken = canvas.tokens.get(args[2])
-            console.log({casterToken})
             const effect = actor.effects.get(lastArg.effectId)
             let removeUuids = getProperty(casterToken.actor.flags, "midi-qol.concentration-data.removeUuids") ?? [];
             removeUuids = removeUuids.concat([effect.uuid]);
@@ -461,6 +468,11 @@ async function automatedWebSpell(args) {
     }
 }
 
+async function ThunderGauntlets(workflow){
+    if(!workflow.actor.flags?.dae?.ThunderGauntlets)return
+    if(workflow.targets.map(i=>i.id).has(workflow.actor.flags?.dae?.ThunderGauntlets))return
+    workflow.disadvantage = true
+}
 
 /*
 globalThis.DnD5eAutomatedSpellsAPI = {testFunction}
